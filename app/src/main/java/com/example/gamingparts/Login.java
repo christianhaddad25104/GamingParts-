@@ -1,6 +1,7 @@
 package com.example.gamingparts;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -51,10 +52,20 @@ public class Login extends AppCompatActivity {
                     if (snapshot.hasChild(UserNameTxt)) {
                         String getPassword = snapshot.child(UserNameTxt).child("Password").getValue(String.class);
                         if (getPassword != null && getPassword.equals(passwordTxt)) {
-                            Toast.makeText(Login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Login.this, HomePage.class);
-                            intent.putExtra("userName", UserNameTxt);
-                            startActivity(intent);
+                            SharedPreferences sharedPref = getSharedPreferences("UserData", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putString("username",UserNameTxt);
+                            editor.apply();
+                            Boolean isAdmin = snapshot.child(UserNameTxt).child("isAdmin").getValue(Boolean.class);
+                            if(isAdmin){
+                                Toast.makeText(Login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Login.this, HomePage.class);
+                                startActivity(intent);
+                            }else{
+                                Toast.makeText(Login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Login.this, HomePage.class);
+                                startActivity(intent);
+                            }
                         } else {
                             Toast.makeText(Login.this, "Wrong password", Toast.LENGTH_SHORT).show();
                         }
