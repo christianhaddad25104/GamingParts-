@@ -14,6 +14,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.gamingparts.ui.home.HomeFragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,11 +60,11 @@ public class Login extends AppCompatActivity {
                             Boolean isAdmin = snapshot.child(UserNameTxt).child("isAdmin").getValue(Boolean.class);
                             if(isAdmin){
                                 Toast.makeText(Login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(Login.this, HomePage.class);
+                                Intent intent = new Intent(Login.this, AdminActivity.class);
                                 startActivity(intent);
                             }else{
                                 Toast.makeText(Login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(Login.this, HomePage.class);
+                                Intent intent = new Intent(Login.this, HomeFragment.class);
                                 startActivity(intent);
                             }
                         } else {

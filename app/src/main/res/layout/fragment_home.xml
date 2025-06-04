@@ -83,7 +83,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_margin="8dp"
-            android:src="@drawable/AMD" />
+            android:src="@drawable/amd" />
     </LinearLayout>
 
     <LinearLayout
@@ -97,19 +97,19 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_margin="8dp"
-            android:src="@drawable/MSI" />
+            android:src="@drawable/msi" />
 
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_margin="8dp"
-            android:src="@drawable/ASUS" />
+            android:src="@drawable/asus" />
 
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_margin="8dp"
-            android:src="@drawable/Kingston" />
+            android:src="@drawable/kingston" />
     </LinearLayout>
 
 </LinearLayout>
