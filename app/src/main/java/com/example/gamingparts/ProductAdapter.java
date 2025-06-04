@@ -21,11 +21,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance()
-            .getReferenceFromUrl("https://mydata-86e0f-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Products");
 
-     Context context;
-     ArrayList<Product> products;
+    Context context;
+    ArrayList<Product> products;
 
     public ProductAdapter(Context context, ArrayList<Product> products) {
         super(context, 0, products);
@@ -42,11 +41,20 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_product, parent, false);
         }
 
-        TextView tvProductInfo = convertView.findViewById(R.id.tvProductInfo);
+        // הגדרת השדות לפי ה-XML החדש
+        TextView tvName = convertView.findViewById(R.id.tvName);
+        TextView tvPrice = convertView.findViewById(R.id.tvPrice);
+        TextView tvQuantity = convertView.findViewById(R.id.tvQuantity);
+        TextView tvCompany = convertView.findViewById(R.id.tvCompany);
+        TextView tvDescription = convertView.findViewById(R.id.tvDescription);
         Button btnEdit = convertView.findViewById(R.id.btnEdit);
         Button btnDelete = convertView.findViewById(R.id.btnDelete);
 
-        tvProductInfo.setText(product.name + " | Price: " + product.price + " | Qty: " + product.quantity);
+        tvName.setText(product.name);
+        tvPrice.setText("Price: $" + product.price);
+        tvQuantity.setText("Quantity: " + product.quantity);
+        tvCompany.setText("Company: " + product.company);
+        tvDescription.setText("Description: " + product.description);
 
         btnEdit.setOnClickListener(v -> {
             showEditDialog(product);
@@ -68,6 +76,11 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(30, 20, 30, 20);
 
+        EditText etName = new EditText(context);
+        etName.setHint("Product Name");
+        etName.setText(product.name);
+        layout.addView(etName);
+
         EditText etPrice = new EditText(context);
         etPrice.setHint("Price");
         etPrice.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -80,11 +93,25 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         etQuantity.setText(String.valueOf(product.quantity));
         layout.addView(etQuantity);
 
+        EditText etCompany = new EditText(context);
+        etCompany.setHint("Company");
+        etCompany.setText(product.company);
+        layout.addView(etCompany);
+
+        EditText etDescription = new EditText(context);
+        etDescription.setHint("Description");
+        etDescription.setText(product.description);
+        layout.addView(etDescription);
+
         builder.setView(layout);
 
         builder.setPositiveButton("Save", (dialog, which) -> {
+            product.name = etName.getText().toString();
             product.price = Double.parseDouble(etPrice.getText().toString());
             product.quantity = Integer.parseInt(etQuantity.getText().toString());
+            product.company = etCompany.getText().toString();
+            product.description = etDescription.getText().toString();
+
             databaseReference.child(product.productId).setValue(product);
             Toast.makeText(context, "Product Updated", Toast.LENGTH_SHORT).show();
         });

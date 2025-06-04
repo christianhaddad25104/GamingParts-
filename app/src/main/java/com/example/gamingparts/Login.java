@@ -55,14 +55,14 @@ public class Login extends AppCompatActivity {
                         if (getPassword != null && getPassword.equals(passwordTxt)) {
                             SharedPreferences sharedPref = getSharedPreferences("UserData", MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPref.edit();
-                            editor.putString("username",UserNameTxt);
+                            editor.putString("username", UserNameTxt);
                             editor.apply();
                             Boolean isAdmin = snapshot.child(UserNameTxt).child("isAdmin").getValue(Boolean.class);
-                            if(isAdmin){
+                            if (isAdmin) {
                                 Toast.makeText(Login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Login.this, AdminActivity.class);
                                 startActivity(intent);
-                            }else{
+                            } else {
                                 Toast.makeText(Login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Login.this, HomeFragment.class);
                                 startActivity(intent);
@@ -89,8 +89,5 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void productbtn(View view) {
-        Intent intent = new Intent(Login.this, Products.class);
-        startActivity(intent);
-    }
 }
+
