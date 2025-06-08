@@ -9,19 +9,27 @@
     android:background="@color/white"
     tools:context=".Login">
 
-    <!-- Logo -->
-    <ImageView
-        android:id="@+id/gamingPartsLogo"
-        android:layout_width="220dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="44dp"
-        android:contentDescription="GamingParts Logo"
-        android:src="@drawable/gaminparts_logo"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title=""
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Login Layout -->
+    <ImageView
+        android:id="@+id/gamingPartsLogo"
+        android:layout_width="220dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="GamingParts Logo"
+        android:src="@drawable/gaminparts_logo"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <LinearLayout
         android:id="@+id/loginLayout"
         android:layout_width="0dp"
@@ -32,7 +40,6 @@
         android:padding="24dp"
         android:gravity="center"
         android:elevation="8dp"
-        android:backgroundTintMode="src_in"
         app:layout_constraintTop_toBottomOf="@id/gamingPartsLogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -42,16 +49,16 @@
             android:layout_height="wrap_content"
             android:paddingBottom="24dp"
             android:text="Welcome - Sign In"
-            android:textColor="#FFFFFF"
+            android:textColor="#646464"
             android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Sign in" />
 
         <EditText
             android:id="@+id/UserNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:backgroundTint="#C00000"
             android:hint="User Name"
             android:inputType="textEmailAddress"
             android:padding="12dp"
@@ -90,8 +97,6 @@
             android:onClick="SignUpbtn"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
-
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

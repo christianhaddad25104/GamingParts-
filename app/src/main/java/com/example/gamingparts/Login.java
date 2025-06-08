@@ -10,11 +10,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.gamingparts.ui.home.HomeFragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -64,7 +60,7 @@ public class Login extends AppCompatActivity {
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(Login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(Login.this, HomeFragment.class);
+                                Intent intent = new Intent(Login.this, Sidebar.class);
                                 startActivity(intent);
                             }
                         } else {

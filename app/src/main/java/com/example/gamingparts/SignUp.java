@@ -51,13 +51,13 @@ public class SignUp extends AppCompatActivity {
                     } else {
                         databaseReference.child("users").child(usernameTxt).child("email").setValue(emailTxt);
                         databaseReference.child("users").child(usernameTxt).child("Password").setValue(passwordTxt);
+                        databaseReference.child("users").child(usernameTxt).child("isAdmin").setValue(false);
                         Toast.makeText(SignUp.this, "User registered successfully.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignUp.this, Login.class);
                         startActivity(intent);
                         finish();
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
                 }

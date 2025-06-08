@@ -10,7 +10,6 @@
     android:padding="24dp"
     tools:context=".SignUp">
 
-    <!-- Logo -->
     <ImageView
         android:id="@+id/intelLogo"
         android:layout_width="188dp"
@@ -22,21 +21,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Title -->
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Register Page"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/intelLogo" />
 
-    <!-- Username -->
     <EditText
         android:id="@+id/UserNameInput"
         android:layout_width="0dp"
@@ -52,7 +49,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
-    <!-- Email -->
     <EditText
         android:id="@+id/emailInput2"
         android:layout_width="0dp"
@@ -68,7 +64,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/UserNameInput" />
 
-    <!-- Password -->
     <EditText
         android:id="@+id/passwordInput"
         android:layout_width="0dp"
@@ -84,7 +79,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailInput2" />
 
-    <!-- Register Button -->
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="0dp"

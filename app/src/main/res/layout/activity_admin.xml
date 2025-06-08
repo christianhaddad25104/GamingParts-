@@ -10,7 +10,6 @@
     android:padding="24dp"
     tools:context=".AdminActivity">
 
-    <!-- Title -->
     <TextView
         android:id="@+id/adminTitle"
         android:layout_width="wrap_content"
@@ -24,7 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Add Product Button -->
     <Button
         android:id="@+id/btnAddProduct"
         android:layout_width="0dp"
@@ -38,7 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Products List -->
     <ListView
         android:id="@+id/listViewProducts"
         android:layout_width="0dp"
@@ -49,4 +46,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

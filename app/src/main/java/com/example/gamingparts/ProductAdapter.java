@@ -41,7 +41,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_product, parent, false);
         }
 
-        // הגדרת השדות לפי ה-XML החדש
+
         TextView tvName = convertView.findViewById(R.id.tvName);
         TextView tvPrice = convertView.findViewById(R.id.tvPrice);
         TextView tvQuantity = convertView.findViewById(R.id.tvQuantity);
@@ -62,7 +62,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
 
         btnDelete.setOnClickListener(v -> {
             databaseReference.child(product.productId).removeValue();
-            Toast.makeText(context, "Product Deleted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "com.example.gamingparts.Product Deleted", Toast.LENGTH_SHORT).show();
         });
 
         return convertView;
@@ -70,14 +70,14 @@ public class ProductAdapter extends ArrayAdapter<Product> {
 
     private void showEditDialog(Product product) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Edit Product");
+        builder.setTitle("Edit com.example.gamingparts.Product");
 
         LinearLayout layout = new LinearLayout(context);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(30, 20, 30, 20);
 
         EditText etName = new EditText(context);
-        etName.setHint("Product Name");
+        etName.setHint("com.example.gamingparts.Product Name");
         etName.setText(product.name);
         layout.addView(etName);
 
@@ -113,7 +113,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             product.description = etDescription.getText().toString();
 
             databaseReference.child(product.productId).setValue(product);
-            Toast.makeText(context, "Product Updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "com.example.gamingparts.Product Updated", Toast.LENGTH_SHORT).show();
         });
 
         builder.setNegativeButton("Cancel", null);

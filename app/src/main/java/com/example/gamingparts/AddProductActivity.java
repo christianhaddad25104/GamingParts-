@@ -57,7 +57,7 @@ public class AddProductActivity extends AppCompatActivity {
         Product p = new Product(id, name, price, quantity, company, description);
         databaseReference.child(id).setValue(p);
 
-        Toast.makeText(this, "Product Saved Successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "com.example.gamingparts.Product Saved Successfully", Toast.LENGTH_SHORT).show();
         finish();
     }
 }
